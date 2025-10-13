@@ -15,8 +15,13 @@ pool.query('SELECT 1')
   .then(() => console.log("Database connected successfully"))
   .catch((err) => console.error("Database connection failed:", err.message));
 
-
-app.use(cors());
+// ✨ CẬP NHẬT TẠI ĐÂY: Chỉ cho phép URL của Frontend của bạn.
+app.use(cors({
+    // Thay thế URL này bằng URL thực tế của Frontend Render của bạn (đã cung cấp)
+    origin: "https://flower-frontend-1y1e.onrender.com", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,4 +36,3 @@ const PORT = process.env.PORT;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
-
