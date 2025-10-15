@@ -13,7 +13,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'https://ten-backend-cua-ban.onrender.com',
+        target: 'http://localhost:3000',
         changeOrigin: true,
       },
     },
